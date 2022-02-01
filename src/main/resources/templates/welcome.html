@@ -11,16 +11,25 @@
 
 </head>
 
-<body>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<body style="background: cadetblue">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#" th:text="${title}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Blog</a>
+            <a class="nav-item nav-link" href="#">Shop</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+    </div>
 </nav>
-
 <main role="main" class="container">
 
     <div class="starter-template">
-        <h1>${@environment.getProperty("foo.app.version")}</h1>
+        <h1 th:text="${title}"></h1>
         <h2>
             <span th:text="'Hello, ' + ${message}"></span>
         </h2>
