@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/api/v1/")
 public class SeventeenRestController {
@@ -16,9 +18,9 @@ public class SeventeenRestController {
   }
 
   @GetMapping("/information")
-  public Information getInformation() {
+  public List<Information> getInformation() {
     System.out.println("Hi");
-    return informationService.getSomeInformation();
+    return informationService.getInformation();
   }
 
 }

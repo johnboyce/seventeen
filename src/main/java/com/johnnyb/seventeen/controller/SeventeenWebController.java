@@ -43,7 +43,7 @@ public class SeventeenWebController {
     model.addAttribute("title", title);
     model.addAttribute("message", message);
     model.addAttribute("features", features);
-    model.addAttribute("information", informationService.getSomeInformation());
+    model.addAttribute("informationList", informationService.getInformation());
     return "information"; //view
   }
 
