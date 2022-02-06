@@ -35,10 +35,10 @@ public class SeventeenWebController {
     model.addAttribute("title", title);
     model.addAttribute("message", message);
     model.addAttribute("features", features);
-    return "welcome"; //view
+    return "index"; //view
   }
 
-  @GetMapping("/getInformation")
+  @GetMapping("/information")
   public String getInformation(Model model) {
     model.addAttribute("title", title);
     model.addAttribute("message", message);
