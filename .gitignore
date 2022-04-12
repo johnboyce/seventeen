@@ -7,6 +7,9 @@
 # Log file
 *.log
 
+# java version file
+*.java-version
+
 # BlueJ files
 *.ctxt
 
