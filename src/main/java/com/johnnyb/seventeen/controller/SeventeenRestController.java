@@ -1,43 +1,26 @@
 package com.johnnyb.seventeen.controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import com.johnnyb.seventeen.model.Information;
+import com.johnnyb.seventeen.service.InformationService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping(path = "/api/v1/")
 public class SeventeenRestController {
+  private InformationService informationService;
 
-  @Autowired
-  ObjectMapper defaultObjectMapper;
-
-  @Value("${spring.application.name}")
-  private String title;
-
-  @Value("${app.welcome.message}")
-  private String message;
-
-  private List<String> features = Arrays.asList("Pattern Matching for Switch (Preview)", "Remove RMI Activation", "Sealed Classes", "Deprecate the Applet API for Removal");
-
-  @GetMapping("/")
-  public String main(Model model) {
-    model.addAttribute("title", title);
-    model.addAttribute("message", message);
-    model.addAttribute("features", features);
-    return "welcome"; //view
+  public SeventeenRestController(InformationService informationService) {
+    this.informationService = informationService;
   }
 
-  @GetMapping("/name")
-  public JsonNode getSomeJson() {
-    ObjectNode objectNode = defaultObjectMapper.createObjectNode();
-    objectNode.put("yourName", "john");
-    return objectNode;
+  @GetMapping("/information")
+  public List<Information> getInformation() {
+    System.out.println("Hi");
+    return informationService.getInformation();
   }
+
 }
