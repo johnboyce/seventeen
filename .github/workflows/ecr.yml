@@ -24,7 +24,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    
+    - name: Get short SHA
+      id:  sha
+      run: echo "::set-output name=sha7::$(echo ${GITHUB_SHA} | cut -c1-7)"
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -40,7 +42,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: johns-ecr-repo
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ steps.sha.outputs.sha7 }}
       run: |
         mvn clean install
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
