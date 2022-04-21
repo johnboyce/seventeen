@@ -20,3 +20,9 @@ variable "aws_state_bucket_name_suffix" {
   type        = string
   default     = "tf-state-bucket"
 }
+
+variable "aws_ecr_repository_name" {
+  description = "Name of the EECR Bucket for storing terraform state"
+  type        = string
+  default     = "seventeen-repo"
+}
