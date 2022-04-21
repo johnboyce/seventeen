@@ -14,13 +14,8 @@
                 }
             ],
             "essential": true,
-            "entryPoint": [
-                "sh",
-                "-c"
-            ],
-            "command": [
-
-            ],
+            "entryPoint": ["java","-jar","/seventeen.jar"],
+            "command": ["/startup.sh"],
             "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
