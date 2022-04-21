@@ -8,5 +8,5 @@ resource "aws_ecs_service" "seventeen" {
     security_groups = ["sg-076e450d6b2cafad9"]
     assign_public_ip = true
   }
-
+  desired_count = 1
 }
