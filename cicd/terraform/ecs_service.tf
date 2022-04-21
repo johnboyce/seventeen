@@ -4,8 +4,8 @@ resource "aws_ecs_service" "seventeen" {
   task_definition = "seventeen-task-definition"
   cluster = var.aws_ecs_cluster_name
   network_configuration {
-    subnets = ["subnet-0c74a32f65cdd2b48", "subnet-077a613915e0e3b02"]
-    security_groups = ["sg-076e450d6b2cafad9"]
+    subnets = [aws_subnet.seventeen_pub_us-east-1-a, aws_subnet.seventeen_pub_us-east-1-b.id]
+    security_groups = []
     assign_public_ip = true
   }
   desired_count = 1
