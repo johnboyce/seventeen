@@ -22,7 +22,13 @@ variable "aws_state_bucket_name_suffix" {
 }
 
 variable "aws_ecr_repository_name" {
-  description = "Name of the EECR Bucket for storing terraform state"
+  description = "Name of the =ECR Repo for pushing images"
   type        = string
   default     = "seventeen-repo"
+}
+
+variable "aws_ecs_cluster_name" {
+  description = "Name of the ECS Cluster"
+  type        = string
+  default     = "seventeen-cluster"
 }
