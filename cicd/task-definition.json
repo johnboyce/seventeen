@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "seventeen",
-            "image": "httpd:2.4",
+            "image": "020157571320.dkr.ecr.us-east-1.amazonaws.com/seventeen-repo:a7f587bafe028d5eaa38f779b6db1565e3e62b72",
             "cpu": 256,
             "memoryReservation": 512,
             "links": [],
