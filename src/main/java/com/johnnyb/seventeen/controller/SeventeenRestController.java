@@ -13,6 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/v1/")
 public class SeventeenRestController {
+
+  // TODO Add OpenAPI3
   private InformationService informationService;
   Logger logger = LoggerFactory.getLogger(SeventeenRestController.class);
 
@@ -22,7 +24,7 @@ public class SeventeenRestController {
 
   @GetMapping("/information")
   public List<Information> getInformation() {
-    logger.debug("getInformation");
+    logger.info("GET /information John");
     return informationService.getInformation();
   }
 
