@@ -24,7 +24,7 @@ public class SeventeenRestController {
 
   @GetMapping("/information")
   public List<Information> getInformation() {
-    System.out.println("Hi");
+    logger.info("GET /information John");
     return informationService.getInformation();
   }
 
